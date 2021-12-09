@@ -1,0 +1,14 @@
+type User
+  @model
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "id" }
+      { allow: private, operations: [update, delete] }
+    ]
+  ) {
+  id: ID!
+  email: AWSEmail!
+  phone: AWSPhone
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
+}
